@@ -1,5 +1,6 @@
-var state = 'start';
+var state = 'quiz';
 
+var startEl = document.querySelector("#start");
 var highScoreEl = document.getElementById;('#highScore');
 var quizHighScoreEl = document.getElementById;('#quizHighScore');
 
@@ -20,11 +21,47 @@ var endEL = document.getElementById;('#end');
 var timeremaining;
 timeEl.innerHTML = 0;
 
-funtion.init(){
+var startbutton = document.querySelector("#start button");
+var quizTitle = document.querySelector("#quiz #title");
 
+const questions = [
+    {
+        question: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+    },
+
+    {
+        question: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+    },
+
+    {
+        question: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+    },
+
+    {
+        question: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+    },
+]
+
+function init() {
+  displayState();
 }
 
 
 
-
-init ();
+init();
