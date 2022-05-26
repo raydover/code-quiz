@@ -11,34 +11,67 @@
 </head>
 
 <body>
-    <!-- View Highscores Top Left -->
-    <div id="nav">
-        <div class="headLeft"></div>
-        <a onclick="getScore()" href="#">
-            <h5>View Highscores</h5>
-        </a>
-    </div>
+    <head>
+        <!-- Section for quiz, quiz score -->
+        <section id="hightScores">
+            <a onclick="getScore()" href="#">
+                <h4 id="quizHighScore">View High Scores</h4>
+            </a>
+        </section>
 
-    <!-- View Time Remaining on the top right of nav bar-->
-    <div class="headRight">
-        <h4>Time Remaining: <span id="timeRemain">0</span></h4>
-    </div>
+        <!-- Section for timer, time remainig -->
+        <section id="timer">
+            <h4 id="timeRemain">Time Remaining: <span>0</span></h4>
+            </a>
+        </section>
+    </head>
 
-    <!-- Section for main body quiz -->
-    <div id="quiz">
-        <h1 id="title">Coding Question Quiz</h1>
-    </div>
+    <main>
+        <!-- Intro to the quiz section, get started button -->
+        <section id="start">
+            <h2>YOU MAY START THE QUIZ WHEN YOUR READY!</h2>
+            <h3>Quiz Rules:</h3>
+            <p>1. You will have 60 seconds to complete this quiz.</p>
+            <p>2. For all correct answers, you will recieve points.</p>
+            <p>3. For all incorrect answers, you will be deducted points.</p>
+            <p>4. When the quiz is finished or time has expired, your score will show and you can submit your
+                highscore.</p>
+            <section id="startButton">
+                <a onclick="startbtn()" href="#">
+                    <button>Get Started</button></a>
+            </section>
 
-    <!-- Section for get started button -->
-    <div id="start">
-        <h2>Start when your Ready!</h2>
-        <p>Students can test their knowledge by taking this quiz. Click to get started.</p>
-        <div id="startButton">
-            <button onclick="start()">Get Started</button>
-        </div>
+            <!-- Section for quiz, quiz score -->
+            <section id="score">
+                <h4 id="quizScore">Quiz Score: <span>0</span></h4>
 
-        <!-- Link to Javascript file -->
-        <script src="script.js"></script>
+            </section>
+        </section>
+
+        <!-- Section for quiz questions, questions -->
+        <section id="quiz">
+            <h2 id="title">Quiz Questions</h2>
+            <div id="questions">
+                <div id="answers"></div>
+                <button id="buttonA" class="button">A</button>
+                <button id="buttonB" class="button">B</button>
+                <button id="buttonC" class="button">C</button>
+                <button id="buttonD" class="button">D</button>
+                <div id=results></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- End of quiz section, enter initials & submit -->
+    <section id="end">
+        <h4>Please enter your initials.</h4>
+        <input type="text" />
+        <a onclick="submitBtn()" href="#"></a>
+        <button>Submit Quiz</button></a>
+    </section>
+
+    <!-- Link to Javascript file -->
+    <script src="script.js"></script>
 </body>
 
 </html>
