@@ -9,7 +9,7 @@
 
 ## Decription
 
-("Insert Description Here")
+This Challenge requires students to build a timed coding quiz with multiple-choice questions. This application will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that we write. Our code must be clean, polished, and have a responsive user interface.
 
 ## Resources
 
