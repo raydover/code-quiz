@@ -11,25 +11,46 @@
 </head>
 
 <body>
-    <!-- Intro to the quiz section, get started button -->
-    <section id="start">
-        <h2>You may start the quiz when your ready!</h2>
-        <button>Get Started</button>
-    </section>
 
-    <!-- Section for timer, time remainig -->
-    <section id="timer">
-        <h2 id="timeRemain">Time Remaining</h2>
+    <head>
+        <!-- Section for quiz, quiz score -->
+        <section id="hightScores">
+            <h4 id="quizHighScore">View High Scores</h4>
+        </section>
 
-    </section>
+        <!-- Section for timer, time remainig -->
+        <section id="timer">
+            <h4 id="timeRemain">Time Remaining:</h4>
 
-    <!-- Section for quiz questions, questions -->
-    <section id="quiz">
-        <h2 id="title">Quiz Questions</h2>
-        <div id="questions">
+        </section>
+    </head>
 
-        </div>
-    </section>
+    <main>
+        <!-- Intro to the quiz section, get started button -->
+        <section id="start">
+            <h2>YOU MAY START THE QUIZ WHEN YOUR READY!</h2>
+            <button>Get Started</button>
+        </section>
+
+        <!-- Section for quiz, quiz score -->
+        <section id="score">
+            <h2 id="quizScore">Quiz Score</h2>
+
+        </section>
+
+        <!-- Section for quiz questions, questions -->
+        <section id="quiz">
+            <h2 id="title">Quiz Questions</h2>
+            <div id="questions">
+                <div id="answers"></div>
+                <button id="buttonA" class="button">A</button>
+                <button id="buttonB" class="button">B</button>
+                <button id="buttonC" class="button">C</button>
+                <button id="buttonD" class="button">D</button>
+                <div id=results></div>
+            </div>
+        </section>
+    </main>
 
     <!-- End of quiz section, enter initials & submit -->
     <section id="end">
