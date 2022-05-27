@@ -1,32 +1,47 @@
 var state = 'quiz';
 
 var timeEL = document.querySelector("time");
+var mainEl = document.querySelector("main");
 var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
 var startButton = document.querySelector("#startbutton");
 var quizTitle = document.querySelector("#quizTitle");
 
-// Sets the count at 30 seconds
-var secondsleft = 30;
+// Sets the count start at 30 seconds
+var secondsLeft = 30;
+
+// Section sets up the timer
+function displayMessage() {
+    timeEL.textContent = "Time Remaining: " + secondsLeft;
+}
+
+function setTime() {
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+}
 
 function displayState() {
     if (state === 'start') {
-      startEl.style.display = 'block';
-      quizEl.style.display = 'none';
-      endEl.style.display = 'none';
+        startEl.style.display = 'block';
+        quizEl.style.display = 'none';
+        endEl.style.display = 'none';
     }
     if (state === 'quiz') {
-      startEl.style.display = 'none';
-      quizEl.style.display = 'block';
-      endEl.style.display = 'none';
+        startEl.style.display = 'none';
+        quizEl.style.display = 'block';
+        endEl.style.display = 'none';
     }
     if (state === 'end') {
-      startEl.style.display = 'none';
-      quizEl.style.display = 'none';
-      endEl.style.display = 'block';
+        startEl.style.display = 'none';
+        quizEl.style.display = 'none';
+        endEl.style.display = 'block';
     }
-  }
+}
 
 var questions = [
     {
