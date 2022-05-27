@@ -32,7 +32,6 @@ function setTime() {
 function sendMessage() {
     timeEl.textContent = " ";
     mainEl.appendChild();
-
 }
 
 setTime();

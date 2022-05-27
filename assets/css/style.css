@@ -5,10 +5,35 @@
     margin: 0;
 }
 
-header {
-    /* Sets selector header content element */
-    padding: 10px;
-    font-family: 'Arial', sans-serif;
-    background-color: white;
-    color: blue;
+
+body {
+    /* Sets selector body background color */
+    background-color: #ffffff;
 }
+
+h1 {
+    /* Sets selector header h1 text font size and box display element */
+    text-align: center;
+    font-weight: bold;
+}
+
+h2 {
+    /* Sets selector header h1 text font size and box display element */
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    color: goldenrod;
+}
+
+h5 {
+    /* Sets selector header h1 text font size and box display element */
+    margin-left: 200px;
+    font-size: 14px;
+}
+
+.section id {
+    align-items: center;
+}
+

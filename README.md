@@ -19,8 +19,7 @@ This Challenge requires students to build a timed coding quiz with multiple-choi
 
 ## Visuals
 
-
-![My Portfolio Screen Shot]("Insert Picture File Here")
+![My Portfolio Screen Shot]("/Users/raymonddover/Bootcamp/Homework/code-quiz/assets/Code-Quiz (1).png")
 
 ## Authors and Acknowledgements
 
