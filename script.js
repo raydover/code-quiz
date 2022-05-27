@@ -11,30 +11,7 @@ var quizTitle = document.querySelector("#quizTitle");
 // Sets the count start at 30 seconds
 var secondsLeft = 30;
 
-// Section sets up the timer
-function displayMessage() {
-    timeEL.textContent = "Time Remaining: " + secondsLeft;
-}
 
-function setTime() {
-    displayMessage();
-    var timerInterval = setInterval(function () {
-        secondsLeft--;
-        displayMessage();
-
-        if (secondsLeft === 0) {
-            clearInterval(timerInterval);
-            sendMessage();
-        }
-    }, 1000);
-}
-
-function sendMessage() {
-    timeEl.textContent = " ";
-    mainEl.appendChild();
-}
-
-setTime();
 
 function displayState() {
     if (state === 'start') {
@@ -166,9 +143,34 @@ var questions = [
     }
 ]
 
+// Funtion sets up the timer, messages, end game, etc.. 
+function displayMessage() {
+    timeEL.textContent = "Time Remaining: " + secondsLeft;
+}
+
+function setTime() {
+    displayMessage();
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        displayMessage();
+
+        if (secondsLeft === 0) {
+            state = "quizOver"
+            clearInterval(timerInterval);
+            displayState();
+        }
+    }, 1000);
+}
+
+function displayState() {
+    if (state = "end") {
+        finalScore.textContent("Final Score:" + secondsLeft);
+    }
+}
+
 function init() {
     displayState();
-}
+};
 
 startButton.addEventListener("click", function () {
     state = 'quiz';
