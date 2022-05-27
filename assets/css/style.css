@@ -1,0 +1,14 @@
+* {
+    /* Sets universal selector */
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    /* Sets selector header content element */
+    padding: 10px;
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    color: blue;
+}
