@@ -11,24 +11,23 @@
 </head>
 
 <body>
-    <head>
-        <!-- Section for quiz, quiz score -->
-        <section id="hightScores">
-            <a onclick="getScore()" href="#">
-                <h4 id="quizHighScore">View High Scores</h4>
-            </a>
-        </section>
 
-        <!-- Section for timer, time remainig -->
-        <section id="timer">
-            <h4 id="timeRemain">Time Remaining: <span>0</span></h4>
-            </a>
-        </section>
+    <head>
+        <!-- Section for higscore, left align, onclick-->
+        <div id="score"></div>
+        <a onclick="getScore()" href="#">
+            <h1 class="highScore" style="text-align:left"></h1>
+        </a>
+        </div>
+
+        <!-- Section for time, right align, set div main -->
+        <h1 class="time" style="text-align:right"></h1>
+        <div id="main"></div>
     </head>
 
     <main>
         <!-- Intro to the quiz section, get started button -->
-        <section id="start">
+        <div id="start">
             <h2>YOU MAY START THE QUIZ WHEN YOUR READY!</h2>
             <h3>Quiz Rules:</h3>
             <p>1. You will have 60 seconds to complete this quiz.</p>
@@ -46,7 +45,7 @@
                 <h4 id="quizScoreTitle">Quiz Score: <span>0</span></h4>
 
             </section>
-        </section>
+        </div>
 
         <!-- Section for quiz questions, questions -->
         <section id="quiz">

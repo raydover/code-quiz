@@ -1,10 +1,14 @@
 var state = 'quiz';
 
+var timeEL = document.querySelector("time");
 var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
 var startButton = document.querySelector("#startbutton");
 var quizTitle = document.querySelector("#quizTitle");
+
+// Sets the count at 30 seconds
+var secondsleft = 30;
 
 function displayState() {
     if (state === 'start') {
