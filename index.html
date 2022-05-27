@@ -12,60 +12,38 @@
 
 <body>
     <!-- Section for quiz, quiz score -->
-    <section id="hightScores">
-        <a onclick="getScore()" href="#">
-            <h5 id="quizHighScore">View High Scores</h5>
-        </a>
-    </section>
+    <h4 id="quizHighScore">View High Scores</h4>
 
     <!-- Section for timer, time remainig -->
-    <section id="timer">
-        <h5 id="timeRemain">Time Remaining: <span>0</span></h5>
-        </a>
-    </section>
+    <div id="timer">Timer</div>
 
     <main>
         <!-- Intro to the quiz section, get started button -->
         <section id="start">
-            <h1>YOU MAY START THE QUIZ WHEN YOUR READY!</h1>
+            <h1>You may start the QUIZ when your READY!</h1>
             <h2>Quiz Rules:</h2>
-            <p>1. You will have 60 seconds to complete this quiz.</p>
+            <p>1. You will have 15 seconds to complete this quiz.</p>
             <p>2. For all correct answers, you will recieve points.</p>
             <p>3. For all incorrect answers, you will be deducted points.</p>
             <p>4. When the quiz is finished or time has expired, your score will show and you can submit your
                 highscore.</p>
-            <section id="startButton">
-                <a onclick="startbtn()" href="#">
-                    <button>Get Started</button></a>
-            </section>
-
-            <!-- Section for quiz, quiz score -->
-            <section id="score">
-                <h2 id="quizScore">Quiz Score: <span>0</span></h2>
-
-            </section>
+            <button id="startBtn">Get Started</button>
         </section>
 
         <!-- Section for quiz questions, questions -->
         <section id="quiz">
-            <h3 id="title">Quiz Questions</h3>
-            <div id="questions">
-                <div id="answers"></div>
-                <button id="buttonA" class="button">A</button>
-                <button id="buttonB" class="button">B</button>
-                <button id="buttonC" class="button">C</button>
-                <button id="buttonD" class="button">D</button>
-                <div id=results></div>
-            </div>
+            <h2 id="title">Quiz Questions</h2>
+            <div id="questions"></div>
+            <div id="answer"></div>
         </section>
     </main>
 
     <!-- End of quiz section, enter initials & submit -->
     <section id="end">
-        <h4>Please enter your initials.</h4>
-        <input type="text" />
-        <a onclick="submitBtn()" href="#"></a>
-        <button>Submit Quiz</button></a>
+        <h3>Enter your initials.</h3>
+        <input type="text" size="25" placeholder="Enter your name to record your high score!" />
+        <di id="endscore">Final Score:</div>
+            <button>Submit Quiz</button>
     </section>
 
     <!-- Link to Javascript file -->
