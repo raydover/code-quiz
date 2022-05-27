@@ -1,5 +1,6 @@
 var state = 'quiz';
 
+// Sets up Variable Elements
 var timeEL = document.querySelector("time");
 var mainEl = document.querySelector("main");
 var startEl = document.querySelector("#start");
@@ -31,16 +32,42 @@ function displayState() {
     }
 }
 
-var questions = [
+// Sets up answer buttons and choice optoins for the quiz
+function displayQuestions() {
+    questionsEl.innerHTML = "";
+    answerEl.innerHTML = "";
+
+    var buttonA = document.querySelector("button")
+    var buttonB = document.querySelector("button")
+    var buttonC = document.querySelector("button")
+    var buttonD = document.querySelector("button")
+    var viewQuestions = document.querySelector("p");
+
+    viewQuestions.textContent = quizQuestions[position].;
+    buttonA.textContent = quizQuestions[position].optionA;
+    buttonB.textContent = quizQuestions[position].optionA;
+    buttonC.textContent = quizQuestions[position].optionA;
+    buttonD.textContent = quizQuestions[position].optionA;
+
+    questionsEl.appendChild(viewQuestions);
+    answerEl.appendChild(buttonA);
+    answerEl.appendChild(buttonb);
+    answerEl.appendChild(buttonc);
+    answerEl.appendChild(buttond);
+
+}
+
+// List of questions, answers and correct answers for the quiz
+var quizQuestions = [
     {
         numberQuestion: 1,
         question: "?",
         correctAnswer: "Ans",
         answer: [
-            "a",
-            "b",
-            "c",
-            "d"
+            buttonA: "a",
+            buttonB: "b",
+            buttonC: "c",
+            buttonD: "d"
         ]
     },
     {
@@ -48,20 +75,20 @@ var questions = [
         question: "?",
         correctAnswer: "Ans",
         answer: [
-            "a",
-            "b",
-            "c",
-            "d"
+            buttonA: "a",
+            buttonB: "b",
+            buttonC: "c",
+            buttonD: "d"
         ]
     },
     {
         question: "?",
         correctAnswer: "Ans",
         answer: [
-            "a",
-            "b",
-            "c",
-            "d"
+            buttonA: "a",
+            buttonB: "b",
+            buttonC: "c",
+            buttonD: "d"
         ]
     },
     {
@@ -69,10 +96,10 @@ var questions = [
         question: "?",
         correctAnswer: "Ans",
         answer: [
-            "a",
-            "b",
-            "c",
-            "d"
+            buttonA: "a",
+            buttonB: "b",
+            buttonC: "c",
+            buttonD: "d"
         ]
     },
     {
@@ -80,10 +107,10 @@ var questions = [
         question: "?",
         correctAnswer: "Ans",
         answer: [
-            "a",
-            "b",
-            "c",
-            "d"
+            buttonA: "a",
+            buttonB: "b",
+            buttonC: "c",
+            buttonD: "d"
         ]
     },
     {
@@ -91,59 +118,15 @@ var questions = [
         question: "?",
         correctAnswer: "Ans",
         answer: [
-            "a",
-            "b",
-            "c",
-            "d"
-        ]
-    },
-    {
-        numberQuestion: 7,
-        question: "?",
-        correctAnswer: "Ans",
-        answer: [
-            "a",
-            "b",
-            "c",
-            "d"
-        ]
-    },
-    {
-        numberQuestion: 8,
-        question: "Which operator is used to assign a value to a variable?",
-        correctAnswer: "=",
-        answer: [
-            "*",
-            "-",
-            "+",
-            "="
-        ]
-    },
-    {
-        numberQuestion: 9,
-        question: "?",
-        correctAnswer: "Ans",
-        answer: [
-            "a",
-            "b",
-            "c",
-            "d"
-        ]
-    },
-    {
-        numberQuestion: 10,
-        question: "?",
-        correctAnswer: "Ans",
-        answer: [
-            "a",
-            "b",
-            "c",
-            "d"
+            buttonA: "a",
+            buttonB: "b",
+            buttonC: "c",
+            buttonD: "d"
         ]
     }
 ]
 
-// Funtion sets up the timer, messages, end game, etc.. 
+// Funtion sets up the timer, messages, If statement, quiz end, etc.. 
 function displayMessage() {
     timeEL.textContent = "Time Remaining: " + secondsLeft;
 }
