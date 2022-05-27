@@ -17,13 +17,25 @@ function displayMessage() {
 }
 
 function setTime() {
+    displayMessage();
     var timerInterval = setInterval(function () {
         secondsLeft--;
+        displayMessage();
+
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
+            sendMessage();
         }
     }, 1000);
 }
+
+function sendMessage() {
+    timeEl.textContent = " ";
+    mainEl.appendChild();
+
+}
+
+setTime();
 
 function displayState() {
     if (state === 'start') {
