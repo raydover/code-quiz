@@ -6,14 +6,17 @@ var mainEl = document.querySelector("main");
 var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
-var startButton = document.querySelector("#startbutton");
+var titleEl = document.querySelector("#title");
+var startButton = document.querySelector("#startButton");
 var buttonA = document.getElementById("a");
 var buttonA = document.getElementById("b");
 var buttonB = document.getElementById("c");
 var buttonC = document.getElementById("d");
+var quizHighScore = document.getElementById("quizHighScore");
 var finalScore = document.getElementById("finalScore");
 var questionsEl = document.getElementById("questions");
 var answerEl = document.getElementById("answer");
+var time = document.getElementById("time");
 
 
 // Sets the count start at 30 seconds, postion set to 0
@@ -53,7 +56,6 @@ function displayQuestions() {
     var buttonB = document.querySelector("button")
     var buttonC = document.querySelector("button")
     var buttonD = document.querySelector("button")
-    // var viewQuestions = document.querySelector("p");
 
     viewQuestions.textContent = quizQuestions[position].question;
     buttonA.textContent = quizQuestions[position].optionA;
@@ -63,22 +65,22 @@ function displayQuestions() {
 
     questionsEl.appendChild(viewQuestions);
     answerEl.appendChild(buttonA);
-    answerEl.appendChild(buttonb);
-    answerEl.appendChild(buttonc);
-    answerEl.appendChild(buttond);
+    answerEl.appendChild(buttonB);
+    answerEl.appendChild(buttonC);
+    answerEl.appendChild(buttonD);
 
 }
 
 // List of questions, answers and correct answers for the quiz
 var quizQuestions = [
     {
-        question: "?",
-        correctAnswer: "Ans",
+        question: "What coding language is at the heart of every website and the standard language used to build the structure of a webpage?",
+        correctAnswer: "HTML",
         answer: [
-            buttonA: "a",
-            buttonB: "b",
-            buttonC: "c",
-            buttonD: "d"
+            buttonA: "Java Script",
+            buttonB: "HTML",
+            buttonC: "CSS",
+            buttonD: "JQuery"
         ]
     },
     {
@@ -152,7 +154,7 @@ function setTime() {
     }, 1000);
 }
 
-function displayState() {
+function displayScore() {
     if (state = "end") {
         finalScore.textContent("Final Score:" + secondsLeft);
     }
@@ -164,7 +166,7 @@ function init() {
 
 // Event listener is located at the bottom of JS, click to start, to score
 startButton.addEventListener("click", function () {
-    state = 'quiz';
+    state = 'start';
     displayState();
 });
 
