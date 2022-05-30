@@ -32,7 +32,7 @@ function displayState() {
     }
 }
 
-// Sets up answer buttons and choice optoins for the quiz
+// Sets function up answer buttons and choice optoins for the quiz
 function displayQuestions() {
     questionsEl.innerHTML = "";
     answerEl.innerHTML = "";
@@ -155,14 +155,26 @@ function init() {
     displayState();
 };
 
+// Event listener is located at the bottom of JS, click to start, to score
 startButton.addEventListener("click", function () {
     state = 'quiz';
     displayState();
 });
 
-quizTitle.addEventListener("click", function () {
-    state = 'end';
-    displayState();
+answerEl.addEventListener("click", function (event) {
+    if (event.target.type == score) {
+        if (event.target.texContent === quizQuestions[position].correctAnswer)
+    } else {
+        secondsLeft = secondsLeft - 5;
+    }
+
+    position++;
+    if (position < quizQuestions.length) {
+        displayQuestions();
+    } else {
+        state = 'end';
+        displayState();
+    }
 });
 
 init();
