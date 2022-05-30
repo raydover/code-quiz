@@ -1,4 +1,4 @@
-var state = 'quiz';
+var state = 'start';
 
 // Sets up Variable Elements
 var timeEL = document.querySelector("time");
@@ -7,10 +7,18 @@ var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
 var startButton = document.querySelector("#startbutton");
-var quizTitle = document.querySelector("#quizTitle");
+var buttonA = document.getElementById("a");
+var buttonA = document.getElementById("b");
+var buttonB = document.getElementById("c");
+var buttonC = document.getElementById("d");
+var finalScore = document.getElementById("finalScore");
+var questionsEl = document.getElementById("questions");
+var answerEl = document.getElementById("answer");
 
-// Sets the count start at 30 seconds
+
+// Sets the count start at 30 seconds, postion set to 0
 var secondsLeft = 30;
+var position = 0;
 
 
 
@@ -40,13 +48,14 @@ function displayQuestions() {
     questionsEl.innerHTML = "";
     answerEl.innerHTML = "";
 
+    // Variable button a, b, c, d elements
     var buttonA = document.querySelector("button")
     var buttonB = document.querySelector("button")
     var buttonC = document.querySelector("button")
     var buttonD = document.querySelector("button")
-    var viewQuestions = document.querySelector("p");
+    // var viewQuestions = document.querySelector("p");
 
-    viewQuestions.textContent = quizQuestions[position].;
+    viewQuestions.textContent = quizQuestions[position].question;
     buttonA.textContent = quizQuestions[position].optionA;
     buttonB.textContent = quizQuestions[position].optionA;
     buttonC.textContent = quizQuestions[position].optionA;
