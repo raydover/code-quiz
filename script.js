@@ -24,11 +24,14 @@ function displayState() {
         startEl.style.display = 'none';
         quizEl.style.display = 'block';
         endEl.style.display = 'none';
+        displayQuestions();
+        displayState();
     }
     if (state === 'end') {
         startEl.style.display = 'none';
         quizEl.style.display = 'none';
         endEl.style.display = 'block';
+        displayState();
     }
 }
 
@@ -60,18 +63,6 @@ function displayQuestions() {
 // List of questions, answers and correct answers for the quiz
 var quizQuestions = [
     {
-        numberQuestion: 1,
-        question: "?",
-        correctAnswer: "Ans",
-        answer: [
-            buttonA: "a",
-            buttonB: "b",
-            buttonC: "c",
-            buttonD: "d"
-        ]
-    },
-    {
-        numberQuestion: 2,
         question: "?",
         correctAnswer: "Ans",
         answer: [
@@ -92,7 +83,6 @@ var quizQuestions = [
         ]
     },
     {
-        numberQuestion: 4,
         question: "?",
         correctAnswer: "Ans",
         answer: [
@@ -103,7 +93,6 @@ var quizQuestions = [
         ]
     },
     {
-        numberQuestion: 5,
         question: "?",
         correctAnswer: "Ans",
         answer: [
@@ -114,7 +103,16 @@ var quizQuestions = [
         ]
     },
     {
-        numberQuestion: 6,
+        question: "?",
+        correctAnswer: "Ans",
+        answer: [
+            buttonA: "a",
+            buttonB: "b",
+            buttonC: "c",
+            buttonD: "d"
+        ]
+    },
+    {
         question: "?",
         correctAnswer: "Ans",
         answer: [
@@ -162,18 +160,18 @@ startButton.addEventListener("click", function () {
 });
 
 answerEl.addEventListener("click", function (event) {
-    if (event.target.type == score) {
-        if (event.target.texContent === quizQuestions[position].correctAnswer)
-    } else {
-        secondsLeft = secondsLeft - 5;
-    }
-
-    position++;
-    if (position < quizQuestions.length) {
-        displayQuestions();
-    } else {
-        state = 'end';
-        displayState();
+    if (event.target.type == "submit") {
+        if (event.target.texContent === quizQuestions[position].correctAnswer) {
+        } else {
+            secondsLeft = secondsLeft - 5;
+        }
+        position++;
+        if (position < quizQuestions.length) {
+            displayQuestions();
+        } else {
+            state = 'end';
+            displayState();
+        }
     }
 });
 
