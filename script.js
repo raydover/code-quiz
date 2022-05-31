@@ -7,11 +7,11 @@ var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
 var titleEl = document.querySelector("#title");
-var startButton = document.querySelector("#startButton");
-var buttonA = document.getElementById("a");
-var buttonA = document.getElementById("b");
-var buttonB = document.getElementById("c");
-var buttonC = document.getElementById("d");
+var startBtn = document.querySelector("#startButton");
+var optionA = document.getElementById("a");
+var optionA = document.getElementById("b");
+var optionB = document.getElementById("c");
+var optionC = document.getElementById("d");
 var quizHighScore = document.getElementById("quizHighScore");
 var finalScore = document.getElementById("finalScore");
 var questionsEl = document.getElementById("questions");
@@ -52,22 +52,22 @@ function displayQuestions() {
     answerEl.innerHTML = "";
 
     // Variable button a, b, c, d elements
-    var buttonA = document.querySelector("button")
-    var buttonB = document.querySelector("button")
-    var buttonC = document.querySelector("button")
-    var buttonD = document.querySelector("button")
+    var optionA = document.querySelector("button")
+    var optionB = document.querySelector("button")
+    var optionC = document.querySelector("button")
+    var optionD = document.querySelector("button")
 
     viewQuestions.textContent = quizQuestions[position].question;
-    buttonA.textContent = quizQuestions[position].optionA;
-    buttonB.textContent = quizQuestions[position].optionA;
-    buttonC.textContent = quizQuestions[position].optionA;
-    buttonD.textContent = quizQuestions[position].optionA;
+    optionA.textContent = quizQuestions[position].optionA;
+    optionB.textContent = quizQuestions[position].optionB;
+    optionC.textContent = quizQuestions[position].optionC;
+    optionD.textContent = quizQuestions[position].optionD;
 
     questionsEl.appendChild(viewQuestions);
-    answerEl.appendChild(buttonA);
-    answerEl.appendChild(buttonB);
-    answerEl.appendChild(buttonC);
-    answerEl.appendChild(buttonD);
+    answerEl.appendChild(optionA);
+    answerEl.appendChild(optionB);
+    answerEl.appendChild(optionC);
+    answerEl.appendChild(optionD);
 
 }
 
@@ -77,60 +77,60 @@ var quizQuestions = [
         question: "What coding language is at the heart of every website and the standard language used to build the structure of a webpage?",
         correctAnswer: "HTML",
         answer: [
-            buttonA: "Java Script",
-            buttonB: "HTML",
-            buttonC: "CSS",
-            buttonD: "JQuery"
+            optionA: "Java Script",
+            optionB: "HTML",
+            optionC: "CSS",
+            optionD: "JQuery"
         ]
     },
     {
-        question: "?",
-        correctAnswer: "Ans",
+        question: "What is used to add styling to the elements created with HTML?",
+        correctAnswer: "CSS",
         answer: [
-            buttonA: "a",
-            buttonB: "b",
-            buttonC: "c",
-            buttonD: "d"
+            optionA: "GitHub",
+            optionB: "Bootstrap",
+            optionC: "JSON",
+            optionD: "CSS"
         ]
     },
     {
-        question: "?",
-        correctAnswer: "Ans",
+        question: "What is a widely used scripting language that adds functionality and interactivity to a webpage?",
+        correctAnswer: "Java Script",
         answer: [
-            buttonA: "a",
-            buttonB: "b",
-            buttonC: "c",
-            buttonD: "d"
+            optionA: "APIs",
+            optionB: "Java Script",
+            optionC: "DOM",
+            optionD: "VS Code"
         ]
     },
     {
-        question: "?",
-        correctAnswer: "Ans",
+        question: "What programming interface allows us to use JavaScript to interact with HTML elements?",
+        correctAnswer: "DOM",
         answer: [
-            buttonA: "a",
-            buttonB: "b",
-            buttonC: "c",
-            buttonD: "d"
+            optionA: "HTML",
+            optionB: "JSON",
+            optionC: "DOM",
+            optionD: "Terminal"
         ]
     },
     {
-        question: "?",
-        correctAnswer: "Ans",
+        question: "What term means that you meet the minimum requirements to apply for a job as a web developer?",
+        correctAnswer: "employer-ready",
         answer: [
-            buttonA: "a",
-            buttonB: "b",
-            buttonC: "c",
-            buttonD: "d"
+            optionA: "employer-ready",
+            optionB: "employer-competitive",
+            optionC: "employer-minimum",
+            optionD: "employer-required"
         ]
     },
     {
-        question: "?",
-        correctAnswer: "Ans",
+        question: "What term means that you have given yourself the best chance to secure your desired job?",
+        correctAnswer: "employer-competitive",
         answer: [
-            buttonA: "a",
-            buttonB: "b",
-            buttonC: "c",
-            buttonD: "d"
+            optionA: "employer-desired",
+            optionB: "employer-best",
+            optionC: "employer-secure",
+            optionD: "employer-competitive"
         ]
     }
 ]
@@ -154,7 +154,7 @@ function setTime() {
     }, 1000);
 }
 
-function displayScore() {
+function displayState() {
     if (state = "end") {
         finalScore.textContent("Final Score:" + secondsLeft);
     }
@@ -165,7 +165,7 @@ function init() {
 };
 
 // Event listener is located at the bottom of JS, click to start, to score
-startButton.addEventListener("click", function () {
+startBtn.addEventListener("click", function () {
     state = 'start';
     displayState();
 });
