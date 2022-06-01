@@ -6,44 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link to CSS stylesheet file -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <title>Code Quiz</title>
 </head>
 
 <body>
-    <!-- Section for quiz, quiz score -->
-    <h4 id="quizHighScore">View High Scores</h4>
-    
-    <!-- Section for timer, time remainig -->
-    <div id="time">Time Remaining</div>
+    <!-- Intro to the quiz section, get started button -->
+    <section id="start">
+        <h1>Start Quiz!</h1>
+        <button>Get Started</button>
+        <!-- Section for quiz, quiz score -->
+        <div id="scores"></div>
+    </section>
 
-    <main>
-        <!-- Intro to the quiz section, get started button -->
-        <section id="start">
-            <h1>You may start the QUIZ when your READY!</h1>
-            <h2>Quiz Rules:</h2>
-            <p>1. You will have 30 seconds to complete this quiz.</p>
-            <p>2. For all correct answers, you will recieve points.</p>
-            <p>3. For all incorrect answers, you will be deducted points.</p>
-            <p>4. When the quiz is finished or time has expired, your score will show and you can submit your
-                highscore.</p>
-            <button id="startButton">Get Started</button>
-        </section>
-
-        <!-- Section for quiz questions, questions -->
-        <section id="quiz">
-            <h2 id="title">Quiz Questions</h2>
-            <div id="questions"></div>
-            <div id="answer"></div>
-        </section>
-    </main>
+    <!-- Section for quiz questions, questions -->
+    <section id="quiz">
+        <!-- Section for timer, time remainig -->
+        <h2 id="time"></h2>
+        <h2 id="title">Quiz Questions</h2>
+        <div id="questions"></div>
+    </section>
 
     <!-- End of quiz section, enter initials & submit -->
     <section id="end">
-        <h3>Enter your initials.</h3>
-        <input type="text" size="25" placeholder="Enter your name to record your high score!" />
+        <h2>Enter initials</h2>
+        <input id="initials" type="text" size="15" />
         <di id="endscore">Final Score:</div>
-            <button>Submit Quiz</button>
+            <button type="submit">Submit</button>
     </section>
 
     <!-- Link to Javascript file -->

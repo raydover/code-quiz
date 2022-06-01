@@ -1,4 +1,4 @@
-var state = 'start';
+var state = 'quiz';
 
 // Sets up Variable Elements
 var timeEL = document.querySelector("time");
@@ -17,70 +17,19 @@ var finalScore = document.getElementById("finalScore");
 var questionsEl = document.getElementById("questions");
 var answerEl = document.getElementById("answer");
 var time = document.getElementById("time");
-
-
-// Sets the count start at 30 seconds, postion set to 0
 var secondsLeft = 30;
 var position = 0;
-
-
-
-function displayState() {
-    if (state === 'start') {
-        startEl.style.display = 'block';
-        quizEl.style.display = 'none';
-        endEl.style.display = 'none';
-    }
-    if (state === 'quiz') {
-        startEl.style.display = 'none';
-        quizEl.style.display = 'block';
-        endEl.style.display = 'none';
-        displayQuestions();
-        displayState();
-    }
-    if (state === 'end') {
-        startEl.style.display = 'none';
-        quizEl.style.display = 'none';
-        endEl.style.display = 'block';
-        displayState();
-    }
-}
-
-// Sets function up answer buttons and choice optoins for the quiz
-function displayQuestions() {
-    questionsEl.innerHTML = "";
-    answerEl.innerHTML = "";
-
-    // Variable button a, b, c, d elements
-    var optionA = document.querySelector("button")
-    var optionB = document.querySelector("button")
-    var optionC = document.querySelector("button")
-    var optionD = document.querySelector("button")
-
-    viewQuestions.textContent = quizQuestions[position].question;
-    optionA.textContent = quizQuestions[position].optionA;
-    optionB.textContent = quizQuestions[position].optionB;
-    optionC.textContent = quizQuestions[position].optionC;
-    optionD.textContent = quizQuestions[position].optionD;
-
-    questionsEl.appendChild(viewQuestions);
-    answerEl.appendChild(optionA);
-    answerEl.appendChild(optionB);
-    answerEl.appendChild(optionC);
-    answerEl.appendChild(optionD);
-
-}
 
 // List of questions, answers and correct answers for the quiz
 var quizQuestions = [
     {
         question: "What coding language is at the heart of every website and the standard language used to build the structure of a webpage?",
-        correctAnswer: "HTML",
-        answer: [
+        possible: [
             optionA: "Java Script",
             optionB: "HTML",
             optionC: "CSS",
             optionD: "JQuery"
+        correctAnswer: "HTML",
         ]
     },
     {
@@ -135,21 +84,62 @@ var quizQuestions = [
     }
 ]
 
-// Funtion sets up the timer, messages, If statement, quiz end, etc.. 
-function displayMessage() {
-    timeEL.textContent = "Time Remaining: " + secondsLeft;
+function displayState() {
+    if (state === 'start') {
+        startEl.style.display = 'block';
+        quizEl.style.display = 'none';
+        endEl.style.display = 'none';
+    }
+    if (state === 'quiz') {
+        startEl.style.display = 'none';
+        quizEl.style.display = 'block';
+        endEl.style.display = 'none';
+        displayQuestions();
+        displayState();
+    }
+    if (state === 'end') {
+        startEl.style.display = 'none';
+        quizEl.style.display = 'none';
+        endEl.style.display = 'block';
+        displayState();
+    }
 }
 
-function setTime() {
+// Sets function up answer buttons and choice optoins for the quiz
+function displayQuestions() {
+    questionsEl.innerHTML = "";
+    answerEl.innerHTML = "";
+
+    // Variable button a, b, c, d elements
+    var optionA = document.querySelector("button")
+    var optionB = document.querySelector("button")
+    var optionC = document.querySelector("button")
+    var optionD = document.querySelector("button")
+
+    viewQuestions.textContent = quizQuestions[position].question;
+    optionA.textContent = quizQuestions[position].optionA;
+    optionB.textContent = quizQuestions[position].optionB;
+    optionC.textContent = quizQuestions[position].optionC;
+    optionD.textContent = quizQuestions[position].optionD;
+
+    questionsEl.appendChild(viewQuestions);
+    answerEl.appendChild(optionA);
+    answerEl.appendChild(optionB);
+    answerEl.appendChild(optionC);
+    answerEl.appendChild(optionD);
+
+}
+
+// Funtion sets up the timer, messages, If statement, quiz end, etc.. 
+function displayTimer() {
+
     displayMessage();
     var timerInterval = setInterval(function () {
         secondsLeft--;
-        displayMessage();
 
         if (secondsLeft === 0) {
             state = "quizOver"
             clearInterval(timerInterval);
-            displayState();
         }
     }, 1000);
 }
@@ -162,25 +152,29 @@ function displayState() {
 
 function init() {
     displayState();
-};
+}
 
 // Event listener is located at the bottom of JS, click to start, to score
 startBtn.addEventListener("click", function () {
-    state = 'start';
+    state = 'quiz';
     displayState();
 });
 
-answerEl.addEventListener("click", function (event) {
+questionsEl.addEventListener("click", function (event) {
     if (event.target.type == "submit") {
         if (event.target.texContent === quizQuestions[position].correctAnswer) {
         } else {
             secondsLeft = secondsLeft - 5;
         }
+
         position++;
-        if (position < quizQuestions.length) {
-            displayQuestions();
-        } else {
+
+        if (position <= quizQuestions.length) {
             state = 'end';
+            displayQuestions();
+            clearInterval();
+            displayState();
+        } else {
             displayState();
         }
     }
