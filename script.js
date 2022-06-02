@@ -24,27 +24,27 @@ var questions = [
     {
         title: "What is used to add styling to the elements created with HTML?",
         answer: ["GitHub", "Bootstrap", "JSON", "CSS"],
-        correct: "CSS",
+        correct: "CSS"
     },
     {
         title: "What is a widely used scripting language that adds functionality and interactivity to a webpage?",
         answer: ["APIs", "Java Script", "DOM", "VS Code"],
-        correct: "Java Script",
+        correct: "Java Script"
     },
     {
         title: "What programming interface allows us to use JavaScript to interact with HTML elements?",
         answer: ["HTML", "JSON", "DOM", "Terminal"],
-        correct: "DOM",
+        correct: "DOM"
     },
     {
         title: "What term means that you meet the minimum requirements to apply for a job as a web developer?",
         answer: ["employer-ready", "employer-competitive", "employer-minimum", "employer-required"],
-        correct: "employer-ready",
+        correct: "employer-ready"
     },
     {
         title: "What term means that you have given yourself the best chance to secure your desired job?",
         answer: ["employer-desired", "employer-best", "employer-secure", "employer-competitive"],
-        correct: "employer-competitive",
+        correct: "employer-competitive"
     }
 ];
 
@@ -54,12 +54,14 @@ function displayState() {
         startEl.style.display = 'block';
         quizEl.style.display = 'none';
         endEl.style.display = 'none';
+        displayScores();
     }
     if (state === 'quiz') {
         startEl.style.display = 'none';
         quizEl.style.display = 'block';
         endEl.style.display = 'none';
         displayQuestion();
+        displayTimer();
     }
     if (state === 'end') {
         startEl.style.display = 'none';
@@ -85,13 +87,13 @@ function displayQuestion() {
 // Set funciton timer, if statement when to clear, diplay timer
 function displayTimer() {
     timerEl.textContent = time;
-    timeInterval = setInterval(function() {
+    timeInterval = setInterval(function () {
         time--;
         timerEl.textContent = time;
-    if (time <= 0) {
-        clearInterval(timeInterval);
-    }
-}, 1000);
+        if (time <= 0) {
+            clearInterval(timeInterval);
+        }
+    }, 1000);
 }
 
 function init() {
@@ -104,22 +106,26 @@ startBtn.addEventListener("click", function () {
     displayState();
 });
 
+// Event listener for questions and answer click
 questionsEl.addEventListener("click", function (event) {
     var element = event.target;
     if (element.matches('button')) {
 
-        // Verify the corect answer
+        // Verify the corect answers instructor provided
         var children = element.parentElement.children;
         var position = Array.from(children).indexOf(element);
 
         if (position === questions[cursor].correct) {
         } else {
+            time -= 3;
+            timerEl.textContent = time;
         }
 
         cursor++;
 
         if (cursor >= questions.length) {
             state = 'end';
+            clearInterval(timeInterval);
             displayState();
         } else {
             displayQuestion();
@@ -127,50 +133,22 @@ questionsEl.addEventListener("click", function (event) {
     }
 });
 
+// CLick Event for submit button Instructor Provided
 endEl.addEventListener('submit', function (event) {
     event.preventDefault();
-    localStorage.setItem('highScores', intialsInput.value);
+
+    var data = {
+        initials: intialsInput.value,
+        score: time
+    };
+
+    var scores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+    scores.push(data);
+
+    localStorage.setItem('highScores', JSON.stringify(scores));
+
 });
 
 init();
 
-
-// var secondsLeft = 30;
-
-// // Funtion sets up the timer, messages, If statement, quiz end, etc.. 
-// function displayTimer() {
-
-//     displayMessage();
-//     var timerInterval = setInterval(function () {
-//         secondsLeft--;
-
-//         if (secondsLeft === 0) {
-//             state = "quizOver"
-//             clearInterval(timerInterval);
-//         }
-//     }, 1000);
-// }
-
-// function displayState() {
-//     if (state = "end") {
-//         finalScore.textContent("Final Score:" + secondsLeft);
-//     }
-// }
-
-// Variable button a, b, c, d elements
-// var optionA = document.querySelector("button")
-// var optionB = document.querySelector("button")
-// var optionC = document.querySelector("button")
-// var optionD = document.querySelector("button")
-
-// viewQuestions.textContent = quizQuestions[position].question;
-// optionA.textContent = quizQuestions[position].optionA;
-// optionB.textContent = quizQuestions[position].optionB;
-// optionC.textContent = quizQuestions[position].optionC;
-// optionD.textContent = quizQuestions[position].optionD;
-
-// questionsEl.appendChild(viewQuestions);
-// answerEl.appendChild(optionA);
-// answerEl.appendChild(optionB);
-// answerEl.appendChild(optionC);
-// answerEl.appendChild(optionD);
