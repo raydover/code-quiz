@@ -1,12 +1,13 @@
-var state = 'quiz';
+var state = 'start';
 
 // Sets up Variable Elements
-
 var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
+var questionsEL = document.querySelector("#questions");
 var startBtn = document.querySelector("#start button");
 var quizTitle = document.querySelector('#quiz #title');
+
 
 var secondsLeft = 30;
 var position = 0;
@@ -14,38 +15,38 @@ var position = 0;
 // List of questions, answers and correct answers for variable quiz questions
 var quizQuestions = [
     {
-        question: "What coding language is at the heart of every website and the standard language used to build the structure of a webpage?",
+        title: "What coding language is at the heart of every website and the standard language used to build the structure of a webpage?",
         possible: ["Java Script", "HTML", "CSS", "JQuery", "HTML"],
         correctAnswer: "HTML",
     },
     {
-        question: "What is used to add styling to the elements created with HTML?",
+        title: "What is used to add styling to the elements created with HTML?",
         answer: ["GitHub", "Bootstrap", "JSON", "CSS"],
         correctAnswer: "CSS",
     },
     {
-        question: "What is a widely used scripting language that adds functionality and interactivity to a webpage?",
+        title: "What is a widely used scripting language that adds functionality and interactivity to a webpage?",
         answer: ["APIs", "Java Script", "DOM", "VS Code"],
         correctAnswer: "Java Script",
     },
     {
-        question: "What programming interface allows us to use JavaScript to interact with HTML elements?",
+        title: "What programming interface allows us to use JavaScript to interact with HTML elements?",
         answer: ["HTML", "JSON", "DOM", "Terminal"],
         correctAnswer: "DOM",
     },
     {
-        question: "What term means that you meet the minimum requirements to apply for a job as a web developer?",
+        title: "What term means that you meet the minimum requirements to apply for a job as a web developer?",
         answer: ["employer-ready", "employer-competitive", "employer-minimum", "employer-required"],
         correctAnswer: "employer-ready",
     },
     {
-        question: "What term means that you have given yourself the best chance to secure your desired job?",
+        title: "What term means that you have given yourself the best chance to secure your desired job?",
         answer: ["employer-desired", "employer-best", "employer-secure", "employer-competitive"],
         correctAnswer: "employer-competitive",
     }
 ]
 
-
+// Sets function to display state and question, if statements to start quiz, and when the quiz has ended
 function displayState() {
     if (state === 'start') {
         startEl.style.display = 'block';
@@ -56,7 +57,7 @@ function displayState() {
         startEl.style.display = 'none';
         quizEl.style.display = 'block';
         endEl.style.display = 'none';
-        displayQuestions();
+        displayQuestion();
         displayState();
     }
     if (state === 'end') {
@@ -67,11 +68,15 @@ function displayState() {
     }
 }
 
-// Sets function up answer buttons and choice optoins for the quiz
-function displayQuestions() {
-    questionsEl.innerHTML = "";
-    answerEl.innerHTML = "";
-
+// Sets function to diplay quiz questions, query quiz title, for loop possible, create button, update button text content, append buttons to question
+function displayQuestion() {
+    var question = quizQuestions[0];
+    quizTitle.textContent = question.title;
+    question.possible.forEach(function (item) {
+        var btnEl = document.createElement('button');
+        btnEl.textContent = item;
+        questionsEL.appendChild(btnEl);
+    });
 }
 
 function init() {
