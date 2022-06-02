@@ -74,26 +74,6 @@ function displayQuestions() {
 
 }
 
-// Funtion sets up the timer, messages, If statement, quiz end, etc.. 
-function displayTimer() {
-
-    displayMessage();
-    var timerInterval = setInterval(function () {
-        secondsLeft--;
-
-        if (secondsLeft === 0) {
-            state = "quizOver"
-            clearInterval(timerInterval);
-        }
-    }, 1000);
-}
-
-function displayState() {
-    if (state = "end") {
-        finalScore.textContent("Final Score:" + secondsLeft);
-    }
-}
-
 function init() {
     displayState();
 }
@@ -128,7 +108,25 @@ init();
 
 
 
+// // Funtion sets up the timer, messages, If statement, quiz end, etc.. 
+// function displayTimer() {
 
+//     displayMessage();
+//     var timerInterval = setInterval(function () {
+//         secondsLeft--;
+
+//         if (secondsLeft === 0) {
+//             state = "quizOver"
+//             clearInterval(timerInterval);
+//         }
+//     }, 1000);
+// }
+
+// function displayState() {
+//     if (state = "end") {
+//         finalScore.textContent("Final Score:" + secondsLeft);
+//     }
+// }
 
 // Variable button a, b, c, d elements
 // var optionA = document.querySelector("button")
