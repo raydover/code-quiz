@@ -7,7 +7,8 @@ var endEl = document.querySelector("#end");
 var questionsEl = document.querySelector("#questions");
 var startBtn = document.querySelector("#start button");
 var quizTitle = document.querySelector("#quiz #title");
-intialsInput = document.querySelector("#initials");
+var intialsInput = document.querySelector("#initials");
+var timerEl = document.querySelector("#timer");
 var cursor = 0;
 var time = 30;
 var timeInterval;
@@ -81,10 +82,12 @@ function displayQuestion() {
     });
 }
 
-// Set funciton timer, if statement when to clear
+// Set funciton timer, if statement when to clear, diplay timer
 function displayTimer() {
+    timerEl.textContent = time;
     timeInterval = setInterval(function() {
         time--;
+        timerEl.textContent = time;
     if (time <= 0) {
         clearInterval(timeInterval);
     }
