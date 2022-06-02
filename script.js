@@ -9,7 +9,9 @@ var startBtn = document.querySelector("#start button");
 var quizTitle = document.querySelector("#quiz #title");
 intialsInput = document.querySelector("#initials");
 var cursor = 0;
-var timerInterval;
+var time = 30;
+var timeInterval;
+
 
 // List of questions, answers and correct answers for variable quiz questions
 var questions = [
@@ -77,6 +79,16 @@ function displayQuestion() {
         btnEl.textContent = item;
         questionsEl.appendChild(btnEl);
     });
+}
+
+// Set funciton timer, if statement when to clear
+function displayTimer() {
+    timeInterval = setInterval(function() {
+        time--;
+    if (time <= 0) {
+        clearInterval(timeInterval);
+    }
+}, 1000);
 }
 
 function init() {
