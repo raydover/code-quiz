@@ -1,22 +1,13 @@
 var state = 'quiz';
 
 // Sets up Variable Elements
-var timeEL = document.querySelector("time");
-var mainEl = document.querySelector("main");
+
 var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
-var titleEl = document.querySelector("#title");
-var startBtn = document.querySelector("#startButton");
-var optionA = document.getElementById("a");
-var optionA = document.getElementById("b");
-var optionB = document.getElementById("c");
-var optionC = document.getElementById("d");
-var quizHighScore = document.getElementById("quizHighScore");
-var finalScore = document.getElementById("finalScore");
-var questionsEl = document.getElementById("questions");
-var answerEl = document.getElementById("answer");
-var time = document.getElementById("time");
+var startBtn = document.querySelector("#start button");
+var quizTitle =document.querySelector('#quiz #title');
+
 var secondsLeft = 30;
 var position = 0;
 
