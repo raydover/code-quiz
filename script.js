@@ -1,4 +1,4 @@
-var state = 'start';
+var state = "start";
 
 // Sets up Variable Elements
 var startEl = document.querySelector("#start");
@@ -50,23 +50,23 @@ var questions = [
 
 // Sets function to display state and question, if statements to start quiz, and when the quiz has ended
 function displayState() {
-    if (state === 'start') {
-        startEl.style.display = 'block';
-        quizEl.style.display = 'none';
-        endEl.style.display = 'none';
+    if (state === "start") {
+        startEl.style.display = "block";
+        quizEl.style.display = "none";
+        endEl.style.display = "none";
         displayScores();
     }
-    if (state === 'quiz') {
-        startEl.style.display = 'none';
-        quizEl.style.display = 'block';
-        endEl.style.display = 'none';
+    if (state === "quiz") {
+        startEl.style.display = "none";
+        quizEl.style.display = "block";
+        endEl.style.display = "none";
         displayQuestion();
         displayTimer();
     }
-    if (state === 'end') {
-        startEl.style.display = 'none';
-        quizEl.style.display = 'none';
-        endEl.style.display = 'block';
+    if (state === "end") {
+        startEl.style.display = "none";
+        quizEl.style.display = "none";
+        endEl.style.display = "block";
     }
 }
 
@@ -78,7 +78,7 @@ function displayQuestion() {
     quizTitle.textContent = question.title;
 
     question.possible.forEach(function (item) {
-        var btnEl = document.createElement('button');
+        var btnEl = document.createElement("button");
         btnEl.textContent = item;
         questionsEl.appendChild(btnEl);
     });
@@ -102,14 +102,14 @@ function init() {
 
 // Event listener is located at the bottom of JS, click to start, to score
 startBtn.addEventListener("click", function () {
-    state = 'quiz';
+    state = "quiz";
     displayState();
 });
 
 // Event listener for questions and answer click
 questionsEl.addEventListener("click", function (event) {
     var element = event.target;
-    if (element.matches('button')) {
+    if (element.matches("button")) {
 
         // Verify the corect answers instructor provided
         var children = element.parentElement.children;
@@ -124,7 +124,7 @@ questionsEl.addEventListener("click", function (event) {
         cursor++;
 
         if (cursor >= questions.length) {
-            state = 'end';
+            state = "end";
             clearInterval(timeInterval);
             displayState();
         } else {
@@ -134,7 +134,7 @@ questionsEl.addEventListener("click", function (event) {
 });
 
 // CLick Event for submit button Instructor Provided
-endEl.addEventListener('submit', function (event) {
+endEl.addEventListener("submit", function (event) {
     event.preventDefault();
 
     var data = {
@@ -142,11 +142,11 @@ endEl.addEventListener('submit', function (event) {
         score: time
     };
 
-    var scores = JSON.parse(localStorage.getItem('highScores')) || [];
+    var scores = JSON.parse(localStorage.getItem("highScores")) || [];
 
     scores.push(data);
 
-    localStorage.setItem('highScores', JSON.stringify(scores));
+    localStorage.setItem("highScores", JSON.stringify(scores));
 
 });
 
