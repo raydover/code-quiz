@@ -13,7 +13,6 @@ var cursor = 0;
 var time = 30;
 var timeInterval;
 
-
 // List of questions, answers and correct answers for variable quiz questions
 var questions = [
     {

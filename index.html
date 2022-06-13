@@ -10,16 +10,21 @@
 </head>
 
 <body>
-    <!-- Intro to the quiz section, get started button, scores -->
+    <!-- Sets a link to view high scores -->
+    <div class="scores"><a href="./assets/css/view-high-scores.html">Click to View Highscores</a></div>
+
+    <!-- Intro to the quiz section, title, rules, get started button, scores -->
     <section id="start">
-        <h2>Start the code quiz when your READY!</h2>
+        <h2>Start the Code Quiz when your READY</h2>
+        <p>You have 30 Seconds to complete this quiz.</p>
+        <p>Incorrect answers will result in a score deduction.</p>
+        <p>When you click start, a timer will begin.</p>
+        <p>GOOD LUCK!</p>
         <button>Click to Start</button>
-        <div id="scores"></div>
     </section>
 
     <!-- Section for quiz questions, questions, timer, time remainig -->
     <section id="quiz">
-        <h2 id="time"></h2>
         <h2 id="title">Quiz Questions</h2>
         <div id="questions"></div>
     </section>
