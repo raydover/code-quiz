@@ -13,13 +13,13 @@ This Challenge requires students to build a timed coding quiz with multiple-choi
 
 ## Resources
 
--[LIVE SITE](https://github.com/raydover/code-quiz)
+-[LIVE SITE](https://raydover.github.io/code-quiz/)
 
--[Repository](https://git@github.com:raydover/code-quiz.git)
+-[Repository](https://github.com/raydover/code-quiz)
 
 ## Visuals
 
-![My Portfolio Screen Shot](./assets/css/Code-Quiz.png)
+![Code Quiz Screen Shot](./assets/css/Code-Quiz.png)
 
 ## Authors and Acknowledgements
 
