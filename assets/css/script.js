@@ -112,7 +112,7 @@ function displayMessage() {
     }, 1000);
   }
   
-  // Function to create and append colorsplosion image
+  // Function to create mesage once time has expired
   function sendMessage() {
     timeEl.textContent = "TIME HAS EXPIRED!";
   }
@@ -141,8 +141,8 @@ questionsEl.addEventListener("click", function (event) {
 
         if (position === questions[cursor].correct) {
         } else {
-            time -= 3;
-            timerEl.textContent = time;
+            secondsLeft -= 3;
+            timeEl.textContent = secondsLeft;
         }
 
         cursor++;
@@ -163,7 +163,7 @@ endEl.addEventListener("submit", function (event) {
 
     var data = {
         initials: intialsInput.value,
-        score: time
+        score: secondsLeft
     };
 
     var scores = JSON.parse(localStorage.getItem("highScores")) || [];
