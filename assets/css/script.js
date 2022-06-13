@@ -4,14 +4,15 @@ var state = "start";
 var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
+var mainEl = document.getElementById("main");
 var questionsEl = document.querySelector("#questions");
 var highScoreEl = document.querySelector("#highScore");
 var startBtn = document.querySelector("#start button");
 var quizTitle = document.querySelector("#quiz #title");
 var intialsInput = document.querySelector("#initials");
-var timerEl = document.querySelector("#timer");
+var timeEl = document.querySelector(".time");
 var cursor = 0;
-var time = 30;
+var secondsLeft = 30;
 var timeInterval;
 
 // List of questions, answers and correct answers for variable quiz questions
@@ -63,7 +64,7 @@ function displayState() {
         endEl.style.display = "none";
         highScoreEl.style.display = "none";
         displayQuestion();
-        displayTimer();
+        displayTime();
     }
     if (state === "end") {
         startEl.style.display = "none";
@@ -93,19 +94,31 @@ function displayQuestion() {
     });
 }
 
-// Set funciton timer, if statement when to clear, diplay timer
-function timer() {
-    var timeInterval = setInterval(function () {
-        if (state!= "questions") {
-        clearInterval(timeInterval);   
-        }
-        time--;
-        timerEl.textContent = time + " time remaining";
-        if (time === 0) {
-            clearInterval(timeInterval);
-        }
+// Set funciton time, if statement when to clear, diplay time, message
+function displayMessage() {
+    timeEl.textContent = secondsLeft + " seconds remaining";
+  }
+  
+  function setTime() {
+    displayMessage();
+    var timerInterval = setInterval(function () {
+      secondsLeft--;
+      displayMessage();
+  
+      if (secondsLeft === 0) {
+        clearInterval(timerInterval);
+        sendMessage();
+      }
     }, 1000);
-}
+  }
+  
+  // Function to create and append colorsplosion image
+  function sendMessage() {
+    timeEl.textContent = "TIME HAS EXPIRED!";
+  }
+  
+  setTime();
+  
 
 function init() {
     displayState();
