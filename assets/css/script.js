@@ -5,6 +5,7 @@ var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
 var questionsEl = document.querySelector("#questions");
+var highScoreEl = document.querySelector("#highScore");
 var startBtn = document.querySelector("#start button");
 var quizTitle = document.querySelector("#quiz #title");
 var intialsInput = document.querySelector("#initials");
@@ -53,12 +54,14 @@ function displayState() {
         startEl.style.display = "block";
         quizEl.style.display = "none";
         endEl.style.display = "none";
+        highScoreEl.style.display = "none";
         displayScores();
     }
     if (state === "quiz") {
         startEl.style.display = "none";
         quizEl.style.display = "block";
         endEl.style.display = "none";
+        highScoreEl.style.display = "none";
         displayQuestion();
         displayTimer();
     }
@@ -66,6 +69,13 @@ function displayState() {
         startEl.style.display = "none";
         quizEl.style.display = "none";
         endEl.style.display = "block";
+        highScoreEl.style.display = "none";
+    }
+    if (state === "highScore") {
+        startEl.style.display = "none";
+        quizEl.style.display = "none";
+        endEl.style.display = "none";
+        highScoreEl.style.display = "block";
     }
 }
 
