@@ -10,9 +10,6 @@
 </head>
 
 <body>
-    <!-- Sets a link to view high scores -->
-    <div class="scores"><a href="./assets/css/view-high-scores.html">Click to View Highscores</a></div>
-
     <!-- Intro to the quiz section, title, rules, get started button, scores -->
     <section id="start">
         <h2>Start the Code Quiz when your READY</h2>
@@ -27,17 +24,24 @@
     <section id="quiz">
         <h2 id="title">Quiz Questions</h2>
         <div id="questions"></div>
+        <div class="timer">Time:<span id="time"> 0</span></div>
     </section>
 
     <!-- End of quiz section, enter initials & submit -->
     <section id="end">
         <h2>Input your initials.</h2>
         <input id="initials" type="text" />
-        <button type="submit"> Click to Submit</button>
+        <button type="submit">Click to Submit</button>
+    </section>
+
+    <section id="highScore">
+        <h2 id="scores">High Scores: </h2>
+        <div id="scoreBoard"></div>
+        <button id="startOver">Take the Quiz Again</button>
     </section>
 
     <!-- Link to Javascript file -->
-    <script src="script.js"></script>
+    <script src="assets/css/script.js"></script>
 </body>
 
 </html>

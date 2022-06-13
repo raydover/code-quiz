@@ -84,12 +84,14 @@ function displayQuestion() {
 }
 
 // Set funciton timer, if statement when to clear, diplay timer
-function displayTimer() {
-    timerEl.textContent = time;
-    timeInterval = setInterval(function () {
+function timer() {
+    var timeInterval = setInterval(function () {
+        if (state!= "questions") {
+        clearInterval(timeInterval);   
+        }
         time--;
-        timerEl.textContent = time;
-        if (time <= 0) {
+        timerEl.textContent = time + " time remaining";
+        if (time === 0) {
             clearInterval(timeInterval);
         }
     }, 1000);
