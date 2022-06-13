@@ -1,4 +1,4 @@
-# My Portfolio
+# Code Quiz
 
 ## Table of Contents
 
