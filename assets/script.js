@@ -20,7 +20,7 @@ var timeInterval;
 var questions = [
     {
         title: "What coding language is at the heart of every website and the standard language used to build the structure of a webpage?",
-        possible: ["Java Script", "HTML", "CSS", "JQuery", "HTML"],
+        possible: ["Java Script", "HTML", "CSS", "JQuery"],
         correct: "HTML"
     },
     {
