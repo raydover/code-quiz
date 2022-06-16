@@ -19,7 +19,7 @@ This Challenge requires students to build a timed coding quiz with multiple-choi
 
 ## Visuals
 
-![Code Quiz Screen Shot](./assets/css/Code-Quiz.png)
+![Code Quiz Screen Shot](assets/code-quiz.png)
 
 ## Authors and Acknowledgements
 
